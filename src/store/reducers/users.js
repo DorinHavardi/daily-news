@@ -6,7 +6,11 @@ export const usersSlice = createSlice({
   initialState: {
     action: {},
   },
-  reducers: {},
+  reducers: {
+    clearNewsletter: (state) => {
+      state.action = {};
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(addToNewsletter.fulfilled, (state, action) => {
       state.action = action.payload;
@@ -14,4 +18,5 @@ export const usersSlice = createSlice({
   },
 });
 
+export const { clearNewsletter } = usersSlice.actions;
 export default usersSlice.reducer;
